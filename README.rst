@@ -9,6 +9,10 @@ icd
    :target: https://travis-ci.org/mark-hoffmann/icd
    :alt: Latest Travis CI build status
 
+.. image:: https://codecov.io/gh/mark-hoffmann/icd/coverage.svg?branch=master
+   :target: https://codecov.io/gh/mark-hoffmann/icd
+   :alt: Coverage
+
 Tools for working with icd codes and comorbidities
 
 Usage
