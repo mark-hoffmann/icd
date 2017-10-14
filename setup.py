@@ -13,7 +13,7 @@ setuptools.setup(
 
     packages=setuptools.find_packages(),
 
-    install_requires=[pandas],
+    install_requires=['pandas'],
 
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
