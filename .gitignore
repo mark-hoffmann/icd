@@ -39,3 +39,4 @@ nosetests.xml
 
 .DS_Store
 .cache/v/cache/lastfailed
+deploy_pip.sh
