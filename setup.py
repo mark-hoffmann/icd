@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="icd",
-    version="0.1.0",
+    version="0.1.1",
     url="https://github.com/mark-hoffmann/icd",
 
     author="Mark Hoffmann",
