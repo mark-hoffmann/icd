@@ -7,13 +7,13 @@ def icd_to_comorbidities(df, idx, icds, mapping="quan_elixhauser10"):
     """
     Summary:
         Used for processing dataframe from having icd codes in multiple columns to the comorbidities based on a valid mapping
-    
+
     Args:
         df (Pandas DataFrame): Dataframe containing the data with the valid ids and columns holding icd codes
         mapping (json str:list(str)): mapping to use for the comorbidity lookup ex. elixhauser, charlson
         idx (str): id column name for reference on the output
         icds (list(strs)): list of columns that contain the icd codes
-    
+
     Returns:
         New Pandas DataFrame containing the ids specified with same name along with the comorbidites containing Bools True \
         or False if the icd code was found in the mapping
@@ -34,7 +34,7 @@ def icd_to_comorbidities(df, idx, icds, mapping="quan_elixhauser10"):
         pass
     else:
         raise Exception("Bad mapping type")
-        
+
 
     comorb_cols = list(mapping.keys())
     comorb_df = pd.DataFrame(index=df[idx], columns=comorb_cols)
@@ -42,7 +42,7 @@ def icd_to_comorbidities(df, idx, icds, mapping="quan_elixhauser10"):
     for comorb in comorb_cols:
         #reset truth list then
         #Create a list of lists, will end up with rows of df by len(idxs) long
-        truth_list = [[x in mapping[comorb] for x in df[idx]] for idx in icds]
+        truth_list = [[any([m for m in [x] if any(s in m for s in mapping[comorb])]) for x in df[idx]] for idx in icds]
 
         #Swapping dimensions on list of lists so we can apply a listwise operation to the longer dimension (rows of df)
         truth_list = list(map(list, zip(*truth_list)))
@@ -54,6 +54,5 @@ def icd_to_comorbidities(df, idx, icds, mapping="quan_elixhauser10"):
         comorb_df[comorb] = condensed_truth
 
     comorb_df[idx] = comorb_df.index.tolist()
-    
+
     return comorb_df
-    
