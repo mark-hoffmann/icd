@@ -14,6 +14,8 @@ setuptools.setup(
     packages=setuptools.find_packages(),
 
     install_requires=['pandas'],
+    package_data={'icd': ['comorbidity_mappings/*.json']},
+    include_package_data=True,
 
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
