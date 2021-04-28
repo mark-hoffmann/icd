@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="icd",
-    version="0.1.2",
+    version="0.1.3",
     url="https://github.com/mark-hoffmann/icd",
 
     author="Mark Hoffmann",
@@ -14,6 +14,8 @@ setuptools.setup(
     packages=setuptools.find_packages(),
 
     install_requires=['pandas'],
+    package_data={'icd': ['comorbidity_mappings/*.json']},
+    include_package_data=True,
 
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
