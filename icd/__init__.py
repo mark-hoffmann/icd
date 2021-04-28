@@ -3,6 +3,6 @@ from icd.icd_to_comorbidities import icd_to_comorbidities
 from icd.long_to_short_transformation import long_to_short_transformation
 
 
-__version__ = '0.1.1'
+__version__ = '0.1.3'
 __author__ = 'Mark Hoffmann <markkhoffmann@gmail.com>'
 __all__ = []
